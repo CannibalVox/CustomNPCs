@@ -302,11 +302,11 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
                     return true;
             }
 
-            if (this.isAttacking() || this.isKilled() || this.faction.isAggressiveToPlayer(player)) {
+            if (this.isAttacking() || this.isKilled()) {
                 return false;
             }
 
-            if (this.script.isEnabled() && this.script.scripts.containsKey(EnumScriptType.INTERACT.ordinal()) && !((ScriptContainer)this.script.scripts.get(EnumScriptType.INTERACT.ordinal())).errored)
+            if (this.script != null && this.script.isEnabled() && this.script.scripts.containsKey(EnumScriptType.INTERACT.ordinal()) && !((ScriptContainer)this.script.scripts.get(EnumScriptType.INTERACT.ordinal())).errored)
                 return false;
 
             return true;
