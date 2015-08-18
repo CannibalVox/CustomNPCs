@@ -160,6 +160,10 @@ public class DataStats {
       this.hideKilledBody = compound.getBoolean("HideBodyWhenKilled");
       this.aggroRange = compound.getInteger("AggroRange");
       this.respawnTime = compound.getInteger("RespawnTime");
+
+      if (this.npc != null && this.npc.linkedName != null && this.npc.linkedName.equals("TaintedHero"))
+         this.respawnTime = 0;
+
       this.spawnCycle = compound.getInteger("SpawnCycle");
       this.creatureType = EnumCreatureAttribute.values()[compound.getInteger("CreatureType") % EnumPotionType.values().length];
       this.healthRegen = compound.getInteger("HealthRegen");
